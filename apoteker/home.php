@@ -1,0 +1,1 @@
+<h2> Dashboard <strong><?php echo $_SESSION['sebagai']; ?></strong> </h2>

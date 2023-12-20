@@ -1,0 +1,1 @@
+<h2> Welcome ,<strong><?= $_SESSION['sebagai'] ?> <?= $_SESSION['username']['nama_lengkap'] ?></strong> </h2>
