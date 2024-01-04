@@ -14,6 +14,9 @@ if(!isset($_SESSION['login'])){
      ";
 }
 
+$nama = $_SESSION['username'];
+
+
 ?>
 
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
@@ -40,7 +43,7 @@ if(!isset($_SESSION['login'])){
 
                         <!-- SECTION TITLE -->
                         <div class="section-title wow fadeInUp" data-wow-delay="0.4s">
-                            <h2>Membuat janji</h2>
+                            <h2>Halo  <?= $nama ?>, Silahkan Membuat janji</h2>
                         </div>
 
                         <div class="wow fadeInUp" data-wow-delay="0.8s">

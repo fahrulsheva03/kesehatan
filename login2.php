@@ -8,17 +8,40 @@ if (isset($_POST['masuk'])){
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
-	$ambil = $koneksi->query("SELECT * FROM pasien WHERE username = '$username' AND password = '$password' ");
+	$ambil = $koneksi->query("SELECT * FROM user WHERE username = '$username' AND password = '$password' ");
 	$cocok = $ambil->num_rows;
 	if($cocok > 0){
 		$data = $ambil->fetch_assoc();
-		$_SESSION['username'] = $data['username'];
-		$_SESSION['login'] = true;
-		echo "<div class='col-md-3 col-md-offset-3 mx-auto'>";
-		echo "<div class='alert alert-success text-center'> Login Berhasil </div>";
-		echo "<meta http-equiv='refresh' content='1;url=index.php'>";
-		echo " </div>";
-		} else{
+
+		if ($data['sebagai'] == "Admin") {
+			$_SESSION['username'] = $data['username'];
+			$_SESSION['sebagai'] = "Admin";
+			$_SESSION['login'] = true;
+			echo "<div class='col-md-3 col-md-offset-3 mx-auto'>";
+			echo "<div class='alert alert-success text-center'> Login Berhasil </div>";
+			echo "<meta http-equiv='refresh' content='1;url=admin/menu.php'>";
+			echo " </div>";
+
+		} else if ($data['sebagai'] == "Dokter") {
+			$_SESSION['username'] = $data;
+			$_SESSION['login'] = true;
+			$_SESSION['sebagai'] = "Dokter";
+			echo "<div class='col-md-3 col-md-offset-3 mx-auto'>";
+			echo "<div class='alert alert-success text-center'> Login Berhasil </div>";
+			echo "<meta http-equiv='refresh' content='1;url=dokter/menu.php'>";
+			echo " </div>";
+
+		} else if ($data['sebagai'] == "Apoteker") {
+			$_SESSION['username'] = $data['username'];
+			$_SESSION['login'] = true;
+			$_SESSION['sebagai'] = "Apoteker";
+			echo "<div class='col-md-3 col-md-offset-3 mx-auto'>";
+			echo "<div class='alert alert-success text-center'> Login Berhasil </div>";
+			echo "<meta http-equiv='refresh' content='1;url=apoteker/menu.php'>";
+			echo " </div>";
+		}
+
+	} else{
 		echo "<div class='col-md-3 col-md-offset-3 mx-auto'>";
 		echo "<div class='alert alert-success text-center'> Login Gagal </div>";
 		echo "<meta http-equiv='refresh' content='1;url=index.php'>";
@@ -46,7 +69,7 @@ if (isset($_POST['masuk'])){
 <body class="py-5">
     <div class="container mt-5">
         <div class="col-md-4 mx-auto text-center">
-            <h3> Silahkan Login </h3>
+            <h3> Silahkan Login Admin / Dokter / Apoteker </h3>
             <br>
             <div class="col-auto text-center">
                 <form role="form" action="" method="post">
@@ -58,10 +81,6 @@ if (isset($_POST['masuk'])){
                     </div>
                     <button type="submit" class="btn btn-primary btn-block" name="masuk"> Login </button>
                 </form>
-				<a href="login2.php">
-					<button type="" class="btn btn-warning btn-block mt-3" name="masuk"> Login Admin/Dokter/Apoteker </button>
-				</a>
-
                 <br>
                 <br>
                 Copyright &copy;<script>

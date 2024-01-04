@@ -12,6 +12,8 @@ if(isset($_POST['register'])){
     $alamat = $_POST['alamat'];
     $jk = $_POST['jk'];
     $umur = $_POST['umur'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
     
     // Data yang suda di ambil di masukan ke dalam Database Melalui Fungsi Mysqli
 $insert = mysqli_query($koneksi, "INSERT INTO pasien SET 
@@ -20,6 +22,8 @@ no_ktp = '$no_ktp',
 pekerjaan = '$pekerjaan', 
 alamat = '$alamat', 
 jk = '$jk', 
+username = '$username', 
+password = '$password', 
 umur = '$umur' 
 
 " );
@@ -140,11 +144,19 @@ else{
                             <div class="form-group">
                                 <input type="text" class="form-control" name="umur" placeholder="Umur" required>
                             </div>
+                            
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="username" placeholder="Username" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="password" placeholder="Password" required>
+                            </div>
 
 
                             <div class="form-group">
                                 <button type="submit" name="register"
-                                    class="btn btn-primary btn-block">Registrasi</button>
+                                class="btn btn-primary btn-block">Registrasi</button>
                             </div>
                             <div class="form-group text-center">
                                 <a href="login.php" style="color: black;">Sudah punya akun? Login di sini</a>

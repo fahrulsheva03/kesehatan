@@ -2,7 +2,6 @@
 ?>
 <h2 class="text-center"> Data Pasien </h2>
 <div class="table-responsive">
-    <a href="menu.php?halaman=tambah_pasien" class="btn btn-primary mb-5"> [+] Tambah Data</a>
 
     <table class="table table-bordered" id="dataTable">
         <thead>
@@ -13,6 +12,8 @@
                 <th>Alamat</th>
                 <th>Jenis Kelamin</th>
                 <th>Umur</th>
+                <th>Username</th>
+                <th>Password</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -29,14 +30,10 @@
                 <td><?php echo $tampil['alamat'] ?></td>
                 <td><?php echo $tampil['jk'] ?></td>
                 <td><?php echo $tampil['umur'] ?> Thn</td>
+                <td><?php echo $tampil['username'] ?> </td>
+                <td><?php echo $tampil['password'] ?> </td>
 
                 <td>
-                    <!-- <a href="menu.php?halaman=detail_pasien&id=<?php echo $tampil['id_pasien'] ?>"
-                        class="badge badge-primary">
-                        Detail</a>
-                    <a href="menu.php?halaman=tambah_rekam&id=<?php echo $tampil['id_pasien'] ?>"
-                        class="badge badge-success">
-                        Rekam</a> -->
                     <a href="menu.php?halaman=ubah_pasien&id=<?php echo $tampil['id_pasien'] ?>"
                         class="badge badge-warning">
                         Ubah </a>
