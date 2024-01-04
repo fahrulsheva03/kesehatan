@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 04, 2024 at 07:08 PM
+-- Host: localhost:3306
+-- Generation Time: Dec 21, 2023 at 12:43 AM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- PHP Version: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -81,20 +81,16 @@ CREATE TABLE `pasien` (
   `pekerjaan` varchar(150) NOT NULL,
   `alamat` varchar(150) NOT NULL,
   `jk` varchar(50) NOT NULL,
-  `umur` varchar(5) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `status` int(11) DEFAULT 0
+  `umur` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `pasien`
 --
 
-INSERT INTO `pasien` (`id_pasien`, `no_ktp`, `nama`, `pekerjaan`, `alamat`, `jk`, `umur`, `username`, `password`, `status`) VALUES
-(20, '2131312', 'Andi Aulia', 'Mahasiswa', 'Jln Perintis Kemerdekaan, Makassar', 'P', '24', 'aulia', '222', 0),
-(21, '0798', 'Fahrul', 'mabok', 'Makassar', 'L', '21', 'fahrul', '123', 0),
-(22, '7370001228681', 'Ical Ical', 'Mahasiswa', 'Pampang', 'L', '23', 'ical', '123', 0);
+INSERT INTO `pasien` (`id_pasien`, `no_ktp`, `nama`, `pekerjaan`, `alamat`, `jk`, `umur`) VALUES
+(20, '2131312', 'Andi Aulia', 'Mahasiswa', 'Jln Perintis Kemerdekaan, Makassar', 'Perempuan', '24'),
+(21, '0798', 'Fahrul', 'mabok', 'Makassar', 'L', '21');
 
 -- --------------------------------------------------------
 
@@ -269,7 +265,7 @@ ALTER TABLE `obat`
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `poli`
